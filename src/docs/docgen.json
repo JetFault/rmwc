@@ -2979,7 +2979,7 @@
               "type": {
                 "name": "signature",
                 "type": "object",
-                "raw": "{\n  /** Set the buttons ripple effect globally */\n  buttonDefaultRipple?: boolean,\n  /** Set the listItems ripple effect globally */\n  listItemDefaultRipple?: boolean,\n  /** Set the iconClassNameBase. Read the icon docs for more info. */\n  iconClassNameBase?: string,\n  /** Set the iconClassNamePrefix. Read the icon docs for more info. */\n  iconClassNamePrefix?: string,\n  /** Set the default iconStrategy. Read the icon docs for more info. */\n  iconStrategy?: IconStrategyT,\n  /** Sets a default render function to be used when the iconStrategy is custom */\n  iconRender?: (content: mixed) => mixed,\n  /** Children to render */\n  children?: React.Node\n}",
+                "raw": "{\n  /** Set the buttons ripple effect globally */\n  buttonDefaultRipple?: boolean,\n  /** Set the listItems ripple effect globally */\n  listItemDefaultRipple?: boolean,\n  /** Set the iconClassNameBase. Read the icon docs for more info. */\n  iconClassNameBase?: string,\n  /** Set the iconClassNamePrefix. Read the icon docs for more info. */\n  iconClassNamePrefix?: string,\n  /** Set the default iconStrategy. Read the icon docs for more info. */\n  iconStrategy?: IconStrategyT,\n  /** Sets a default render function to be used when the iconStrategy is custom */\n  iconRender?: (props: {content: React.Node, className: string}) => mixed,\n  /** Children to render */\n  children?: React.Node\n}",
                 "signature": {
                   "properties": [
                     {
@@ -3049,13 +3049,34 @@
                       "value": {
                         "name": "signature",
                         "type": "function",
-                        "raw": "(content: mixed) => mixed",
+                        "raw": "(props: {content: React.Node, className: string}) => mixed",
                         "signature": {
                           "arguments": [
                             {
-                              "name": "content",
+                              "name": "props",
                               "type": {
-                                "name": "mixed"
+                                "name": "signature",
+                                "type": "object",
+                                "raw": "{content: React.Node, className: string}",
+                                "signature": {
+                                  "properties": [
+                                    {
+                                      "key": "content",
+                                      "value": {
+                                        "name": "ReactNode",
+                                        "raw": "React.Node",
+                                        "required": true
+                                      }
+                                    },
+                                    {
+                                      "key": "className",
+                                      "value": {
+                                        "name": "string",
+                                        "required": true
+                                      }
+                                    }
+                                  ]
+                                }
                               }
                             }
                           ],
@@ -3170,13 +3191,34 @@
           "flowType": {
             "name": "signature",
             "type": "function",
-            "raw": "(content: mixed) => mixed",
+            "raw": "(props: {content: React.Node, className: string}) => mixed",
             "signature": {
               "arguments": [
                 {
-                  "name": "content",
+                  "name": "props",
                   "type": {
-                    "name": "mixed"
+                    "name": "signature",
+                    "type": "object",
+                    "raw": "{content: React.Node, className: string}",
+                    "signature": {
+                      "properties": [
+                        {
+                          "key": "content",
+                          "value": {
+                            "name": "ReactNode",
+                            "raw": "React.Node",
+                            "required": true
+                          }
+                        },
+                        {
+                          "key": "className",
+                          "value": {
+                            "name": "string",
+                            "required": true
+                          }
+                        }
+                      ]
+                    }
                   }
                 }
               ],
@@ -4701,7 +4743,7 @@
             "name": "ReactNode",
             "raw": "React.Node"
           },
-          "required": true,
+          "required": false,
           "description": "Any children to render."
         }
       }
